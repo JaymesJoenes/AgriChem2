@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
     descriptionUk: 'Системний гербіцид суцільної дії з інноваційною формуляцією поверхнево-активних речовин Transorb II. Швидко проникає в листя за 1-2 години до дощу та транспортується в кореневу систему навіть стійких бур’янів.',
     descriptionEn: 'Non-selective systemic herbicide with Transorb II surfactant technology. Rainfast within 1 hour, effectively translocates to roots of stubborn perennial weeds.',
     safetyHazardClass: 3,
-    imageUrl: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb22509?auto=format&fit=crop&w=600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'prod-amistar-extra',
