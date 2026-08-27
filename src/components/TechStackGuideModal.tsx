@@ -30,9 +30,9 @@ export const TechStackGuideModal: React.FC<TechStackGuideModalProps> = ({
   onClose,
   lang,
 }) => {
-  if (!isOpen) return null;
-
   const [activeSection, setActiveSection] = useState<'stack' | 'security' | 'integrations' | 'roadmap'>('stack');
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-6">

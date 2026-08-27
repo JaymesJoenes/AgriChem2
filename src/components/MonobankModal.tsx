@@ -26,8 +26,6 @@ export const MonobankModal: React.FC<MonobankModalProps> = ({
   onClose,
   onPaymentSuccess,
 }) => {
-  if (!order) return null;
-
   const [activeTab, setActiveTab] = useState<'monopay' | 'apple_google' | 'card'>('monopay');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isDone, setIsDone] = useState(false);
@@ -36,6 +34,8 @@ export const MonobankModal: React.FC<MonobankModalProps> = ({
   const [cardNumber, setCardNumber] = useState('4441 1144 ');
   const [cardExp, setCardExp] = useState('12/28');
   const [cardCvv, setCardCvv] = useState('884');
+
+  if (!order) return null;
 
   const handleSimulateSuccess = () => {
     setIsProcessing(true);

@@ -29,13 +29,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   onAddToCart,
   onQuickBuy,
 }) => {
-  if (!product) return null;
-
   const currentT = t[lang];
   const [selectedPkgIndex, setSelectedPkgIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [hectaresCalc, setHectaresCalc] = useState<number>(50);
   const [showDosageCalc, setShowDosageCalc] = useState(false);
+
+  if (!product) return null;
 
   const selectedPkg = product.availablePackages[selectedPkgIndex] || product.availablePackages[0];
 

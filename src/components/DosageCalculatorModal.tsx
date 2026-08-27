@@ -26,12 +26,12 @@ export const DosageCalculatorModal: React.FC<DosageCalculatorModalProps> = ({
   lang,
   onAddToCart,
 }) => {
-  if (!isOpen) return null;
-
   const currentT = t[lang];
   const [selectedProductId, setSelectedProductId] = useState<string>(PRODUCTS[0].id);
   const [hectares, setHectares] = useState<number>(100);
   const [workingSolutionRate, setWorkingSolutionRate] = useState<number>(200); // 200 л/га води
+
+  if (!isOpen) return null;
 
   const selectedProduct = PRODUCTS.find(p => p.id === selectedProductId) || PRODUCTS[0];
   const selectedPkg = selectedProduct.availablePackages[selectedProduct.availablePackages.length - 1] || selectedProduct.availablePackages[0];

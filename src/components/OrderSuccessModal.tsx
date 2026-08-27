@@ -28,12 +28,11 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
   onClose,
   onOpenCrm,
 }) => {
-  if (!order) return null;
-
   const currentT = t[lang];
   const [copiedTTN, setCopiedTTN] = React.useState(false);
 
   useEffect(() => {
+    if (!order) return;
     try {
       confetti({
         particleCount: 80,
@@ -44,7 +43,9 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
     } catch {
       // safe fallback
     }
-  }, []);
+  }, [order]);
+
+  if (!order) return null;
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);

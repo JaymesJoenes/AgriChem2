@@ -779,72 +779,86 @@ export default function App() {
       />
 
       {/* Product Detail Modal */}
-      <ProductModal
-        product={detailProduct}
-        lang={lang}
-        onClose={() => setDetailProduct(null)}
-        onAddToCart={handleAddToCart}
-        onQuickBuy={(p, pkg) => {
-          setDetailProduct(null);
-          handleOpenQuickBuy(p, pkg);
-        }}
-      />
+      {detailProduct && (
+        <ProductModal
+          product={detailProduct}
+          lang={lang}
+          onClose={() => setDetailProduct(null)}
+          onAddToCart={handleAddToCart}
+          onQuickBuy={(p, pkg) => {
+            setDetailProduct(null);
+            handleOpenQuickBuy(p, pkg);
+          }}
+        />
+      )}
 
       {/* Quick Buy 1-Click Modal */}
-      <QuickBuyModal
-        product={quickBuyProduct}
-        selectedPackage={quickBuyPackage}
-        lang={lang}
-        onClose={() => {
-          setQuickBuyProduct(null);
-          setQuickBuyPackage(null);
-        }}
-        onConfirmQuickOrder={handleConfirmQuickOrder}
-      />
+      {quickBuyProduct && quickBuyPackage && (
+        <QuickBuyModal
+          product={quickBuyProduct}
+          selectedPackage={quickBuyPackage}
+          lang={lang}
+          onClose={() => {
+            setQuickBuyProduct(null);
+            setQuickBuyPackage(null);
+          }}
+          onConfirmQuickOrder={handleConfirmQuickOrder}
+        />
+      )}
 
       {/* Monobank Payment Modal */}
-      <MonobankModal
-        order={monobankPendingOrder}
-        lang={lang}
-        onClose={() => setMonobankPendingOrder(null)}
-        onPaymentSuccess={handleMonobankSuccess}
-      />
+      {monobankPendingOrder && (
+        <MonobankModal
+          order={monobankPendingOrder}
+          lang={lang}
+          onClose={() => setMonobankPendingOrder(null)}
+          onPaymentSuccess={handleMonobankSuccess}
+        />
+      )}
 
       {/* Order Success Modal */}
-      <OrderSuccessModal
-        order={confirmedOrder}
-        lang={lang}
-        onClose={() => setConfirmedOrder(null)}
-        onOpenCrm={() => setIsCrmOpen(true)}
-      />
+      {confirmedOrder && (
+        <OrderSuccessModal
+          order={confirmedOrder}
+          lang={lang}
+          onClose={() => setConfirmedOrder(null)}
+          onOpenCrm={() => setIsCrmOpen(true)}
+        />
+      )}
 
       {/* CRM & Sales Management Panel */}
-      <CrmPanel
-        isOpen={isCrmOpen}
-        onClose={() => setIsCrmOpen(false)}
-        orders={orders}
-        lang={lang}
-        onUpdateOrderStatus={handleUpdateOrderStatus}
-        onUpdatePaymentStatus={handleUpdatePaymentStatus}
-      />
+      {isCrmOpen && (
+        <CrmPanel
+          isOpen={isCrmOpen}
+          onClose={() => setIsCrmOpen(false)}
+          orders={orders}
+          lang={lang}
+          onUpdateOrderStatus={handleUpdateOrderStatus}
+          onUpdatePaymentStatus={handleUpdatePaymentStatus}
+        />
+      )}
 
       {/* Agronomic Dosage Calculator Modal */}
-      <DosageCalculatorModal
-        isOpen={isDosageCalcOpen}
-        onClose={() => setIsDosageCalcOpen(false)}
-        lang={lang}
-        onAddToCart={(p, pkg, qty) => {
-          handleAddToCart(p, pkg, qty);
-          setIsCartOpen(true);
-        }}
-      />
+      {isDosageCalcOpen && (
+        <DosageCalculatorModal
+          isOpen={isDosageCalcOpen}
+          onClose={() => setIsDosageCalcOpen(false)}
+          lang={lang}
+          onAddToCart={(p, pkg, qty) => {
+            handleAddToCart(p, pkg, qty);
+            setIsCartOpen(true);
+          }}
+        />
+      )}
 
       {/* Tech Stack & Architecture Guide Modal */}
-      <TechStackGuideModal
-        isOpen={isTechStackOpen}
-        onClose={() => setIsTechStackOpen(false)}
-        lang={lang}
-      />
+      {isTechStackOpen && (
+        <TechStackGuideModal
+          isOpen={isTechStackOpen}
+          onClose={() => setIsTechStackOpen(false)}
+          lang={lang}
+        />
+      )}
 
       {/* Footer */}
       <Footer

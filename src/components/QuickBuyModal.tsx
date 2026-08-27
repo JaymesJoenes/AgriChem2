@@ -24,13 +24,13 @@ export const QuickBuyModal: React.FC<QuickBuyModalProps> = ({
   onClose,
   onConfirmQuickOrder,
 }) => {
-  if (!product || !selectedPackage) return null;
-
   const currentT = t[lang];
   const [quantity, setQuantity] = useState(1);
   const [phone, setPhone] = useState('+380 ');
   const [name, setName] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  if (!product || !selectedPackage) return null;
 
   const totalPrice = selectedPackage.price * quantity;
 

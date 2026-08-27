@@ -35,12 +35,12 @@ export const CrmPanel: React.FC<CrmPanelProps> = ({
   onUpdateOrderStatus,
   onUpdatePaymentStatus,
 }) => {
-  if (!isOpen) return null;
-
   const currentT = t[lang];
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(orders[0] || null);
+
+  if (!isOpen) return null;
 
   const filteredOrders = orders.filter((ord) => {
     if (filterStatus !== 'all' && ord.orderStatus !== filterStatus) return false;
